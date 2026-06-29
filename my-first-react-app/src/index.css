@@ -1,0 +1,14 @@
+body{
+    display: flex;
+    justify-content: space-around;
+}
+
+header{
+    background-color: rgb(237, 100, 184);
+}
+main{
+    background-color: rgb(237, 200, 100);
+}
+footer{
+    background-color: cornflowerblue;
+}
