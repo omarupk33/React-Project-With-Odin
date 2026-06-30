@@ -1,0 +1,43 @@
+body, html{
+    padding: 0;
+    margin: 0;
+}
+
+#root{
+  /* width: 100vw;    */
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+header{
+    background-color: rgb(237, 100, 184);
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+    min-height: 5vw;
+}
+main{
+    background-color: rgb(237, 200, 100);
+    min-height: 20vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+footer{
+    background-color: cornflowerblue;
+    min-height: 5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form_section{
+    display: flex;
+    gap: 2vw;
+    height: 20vw;
+    width: 20vw;
+    background-color: rgb(237, 228, 100);
+}
