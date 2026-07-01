@@ -1,6 +1,18 @@
-import {Form} from './Form'
+import Form from './Form'
 
 function Center(){
+
+    // For forward button
+    function navigatorfront(form){
+
+    }
+    // For backward button
+    function navigatorfront(form){
+
+    }
+
+
+
     return (
         <main>
             <p>
@@ -10,12 +22,21 @@ function Center(){
                 awp9onv994aw;nav9n6wa945w4n;o674;9w0v4q 6740qvn7qn067qnv6974nv4v n6q64n0v7vq0760n49n4n03v 0vn47vn4n03
             </p>
 
+        <div className='window'>
+        <button className='Backward'>
+           {'<'}
+        </button>
         <div className="form_section">
-        <Form num='1'></Form>
-        <Form num='2'></Form>
-        <Form num='3'></Form>
-        <Form num='4'></Form>
+        <Form className = '1' Fields = {['num', 'name', 'age','job','monster hunter']}></Form>
+        <Form className = '2' Fields = {['job', 'Minecraft']}> </Form>
+        <Form className = '3' Fields = {['FirstName' , 'MiddleName', 'LastName']} ></Form>
+        <Form className = '4' Fields = {['chess','hello' ]}></Form>
         </div>
+        <button className='Forward'>
+           {'>'}
+        </button>
+        </div>
+
 
         </main>
     )

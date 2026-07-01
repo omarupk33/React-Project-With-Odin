@@ -1,8 +1,23 @@
-function Form({num}){
+function Form({Fields}){
+
+    const allInputs = Fields.map((element) =>{
+        return (
+        <div key={element}>
+        <label htmlFor={element}>{element}</label>
+        <input type="text" name={element} id={element} />        
+        </div>
+      )
+    })
+
     return(
-        <form action="">
-        ey {num}
+        <section>
+        <form>
+        {allInputs.map((element) =>{
+            return element
+        })}
         </form>
+        </section>
+
     )
 }
 
