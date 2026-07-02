@@ -4,7 +4,7 @@ function Center(){
 
     // For forward button
     function navigatorfront(form){
-
+        
     }
     // For backward button
     function navigatorfront(form){
@@ -23,14 +23,13 @@ function Center(){
             </p>
 
         <div className='window'>
-        <button className='Backward'>
+        <button className='Backward' >
            {'<'}
         </button>
         <div className="form_section">
-        <Form className = '1' Fields = {['num', 'name', 'age','job','monster hunter']}></Form>
-        <Form className = '2' Fields = {['job', 'Minecraft']}> </Form>
-        <Form className = '3' Fields = {['FirstName' , 'MiddleName', 'LastName']} ></Form>
-        <Form className = '4' Fields = {['chess','hello' ]}></Form>
+            <Form className = '1' Fields = {['name', 'email','Phone Numbers']}></Form>
+            <Form className = '2' Fields = {['school name', 'title of study', 'date of study']}></Form>
+            <Form className = '3' Fields = {['company name' , 'position title', 'main responsibilities of your jobs', 'date from and until when you worked for that company']} ></Form>
         </div>
         <button className='Forward'>
            {'>'}
