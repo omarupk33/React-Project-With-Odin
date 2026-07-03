@@ -1,9 +1,9 @@
+import cvImage from './assets/cv.png'
+
 function Header(){
     return (
         <header>
-            <div>
-                icon
-            </div>
+            <img src={cvImage} alt="cv icon" />
             <h1>
                 CV Maker
             </h1>
