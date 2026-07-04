@@ -1,4 +1,3 @@
-import Form from './Form'
 import React from 'react'
 import Window from './Window'
 function Center(){

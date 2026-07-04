@@ -1,8 +1,8 @@
-import { useState } from 'react';
-
+import  {useState}  from 'react';
+import Form from './Form';
 
 function Window(){
-
+    
     const [index, setIndex] = useState(0)
 
     const forms = [
@@ -13,30 +13,31 @@ function Window(){
 
         // For forward button
     function navigateFront(){
-        if (index > forms.length){
+        // if (index !== forms.length - 1){
             setIndex(index+1)
-            alert(index+1)
-        }
+        // }
     }
     // For backward button
     function navigateBack(){
-        if (index !== 0){
+        // if (index !== 0){
             setIndex(index-1)
-            alert(index-1)}
+        // }
     }
     
 
     return (
     <div className='window'>
-        <button className='backward' onClick={navigateBack}>
+        <button className={index === 0 ? 'inactive': 'active'} onClick={navigateBack}>
         {'<'}
         </button>
         <div className="form_section">
             {forms.at(index)}
         </div>
-        <button className='forward' onClick={navigateFront}>
+        <button className={index === forms.length -1 ? 'inactive': 'active'} onClick={navigateFront}>
         {'>'}
         </button>
     </div>
     )
 }
+
+export default Window
