@@ -50,7 +50,11 @@ footer{
     background-color: rgb(237, 228, 100);
 }
 
+
+.active{
+    display: block;
+}
+
 .inactive{
-    pointer-events: none;
-    background-color: red;
+    display: none;
 }
