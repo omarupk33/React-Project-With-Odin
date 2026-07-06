@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-function Form({Fields, values, setValues}){
+function Form({Fields, values, setValues, className}){
 
     const allInputs = Fields.map((element) =>{
 
@@ -22,7 +22,7 @@ function Form({Fields, values, setValues}){
     })
 
     return(
-        <section>
+        <section className={className}>
             <h2>Make A CV</h2>
         <form>
         {allInputs.map((element) =>{
