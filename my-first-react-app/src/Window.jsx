@@ -6,10 +6,10 @@ function Window(){
     const [index, setIndex] = useState(0)
 
     const forms = [
-    ['name', 'email','Phone Numbers'],
-    ['school name', 'title of study', 'date of study'],
-    ['company name' , 'position title', 'main responsibilities of your jobs',
-    'date from and until when you worked for that company'],
+    {index:0, title:'Personal Info', text:['Name', 'Email'], number:[ 'Phone Numbers']},
+    {index:1, title:'Education Info',text:['school Name', 'Title of study'], date:['Date of study']},
+    {index:2, title:'Career Info',   text:['Company name' , 'Position title', 'Main responsibilities of your jobs'],
+    date:['started working at', 'to']},
     ]
 
         // For forward button
@@ -41,9 +41,11 @@ function Window(){
         {'<'}
         </button>
         <div className="form_section">
-            {forms.map((value)=>{
-           return  <Form Fields = {value} key={forms.indexOf(value)}
-            className = {index === forms.indexOf(value) ? 'active': 'inactive'}
+            {forms.map((object)=>{
+           return  <Form title={object.title} text = {object.text} number={object.number ?? []}
+           date={object.date ?? []}
+            key={object.index}
+            className = {index === object.index ? 'active': 'inactive'}
             ></Form>
             })}
         </div>

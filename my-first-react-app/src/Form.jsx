@@ -1,8 +1,14 @@
 import { useState } from "react"
 
-function Form({Fields, values, setValues, className}){
+// Make it receive more props to work with
+// Help with specifying the type to make the input suitable 
+// Great work! 
 
-    const allInputs = Fields.map((element) =>{
+
+
+function Form({title ,text, number, date, values, setValues, className}){
+
+    const allText = text.map((element) =>{
 
         const [value, setValue] = useState('')
 
@@ -21,11 +27,60 @@ function Form({Fields, values, setValues, className}){
       )
     })
 
+
+        const allNumber = number.map((element) =>{
+
+        const [value, setValue] = useState('')
+
+        const handleChange = (e)=>{
+            setValue(e.target.value)
+        }
+
+        return (
+        <div key={element}>
+        <label htmlFor={element}>{element}</label>
+        <input type="tel"
+        value={value}
+        onChange={handleChange}
+        name={element} id={element} />        
+        </div>
+      )
+    })
+
+       const allDate = date.map((element) =>{
+
+        const [value, setValue] = useState('')
+
+        const handleChange = (e)=>{
+            setValue(e.target.value)
+        } 
+
+        return (
+        <div key={element}>
+        <label htmlFor={element}>{element}</label>
+        <input type='date'
+        value={value}
+        onChange={handleChange}
+        name={element} id={element} />        
+        </div>
+      )
+    })
+    
+
+
     return(
         <section className={className}>
-            <h2>Make A CV</h2>
+            <h2>{title}</h2>
         <form>
-        {allInputs.map((element) =>{
+        {allText.map((element) =>{
+            return element
+        })}
+
+        {allNumber.map((element) =>{
+            return element
+        })}
+
+        {allDate.map((element) =>{
             return element
         })}
         </form>
