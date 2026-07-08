@@ -1,9 +1,13 @@
 import  {useState}  from 'react';
 import Form from './Form';
+import Screen from './Screen'
 
 function Window(){
     
     const [index, setIndex] = useState(0)
+
+
+// Extract the values to use them in the cv
 
     const forms = [
     {index:0, title:'Personal Info', text:['Name', 'Email'], number:[ 'Phone Numbers']},
@@ -36,22 +40,27 @@ function Window(){
     
 
     return (
-    <div className='window'>
-        <button onClick={navigateBack}>
-        {'<'}
-        </button>
-        <div className="form_section">
-            {forms.map((object)=>{
-           return  <Form title={object.title} text = {object.text} number={object.number ?? []}
-           date={object.date ?? []}
-            key={object.index}
-            className = {index === object.index ? 'active': 'inactive'}
-            ></Form>
-            })}
-        </div>
-        <button onClick={navigateFront}>
-        {'>'}
-        </button>
+    <div className='main-content'>
+        <div className='window'>
+            <button onClick={navigateBack}>
+            {'<'}
+            </button>
+            <div className="form_section">
+                {forms.map((object)=>{
+            return  <Form title={object.title} text = {object.text} number={object.number ?? []}
+            date={object.date ?? []}
+                key={object.index}
+                className = {index === object.index ? 'active': 'inactive'}
+                ></Form>
+                })}
+            </div>
+            <button onClick={navigateFront}>
+            {'>'}
+            </button>
+            </div>
+
+        <Screen>
+        </Screen>
     </div>
     )
 }

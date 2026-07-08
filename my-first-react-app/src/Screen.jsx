@@ -1,5 +1,9 @@
 function Screen(props){
-    return <div>
-        {props}
+    return <div className="screen">
+        {/* {props}
+         */}
+         hey
     </div>
 }
+
+export default Screen
