@@ -1,19 +1,15 @@
 import  {useState}  from 'react';
 import Form from './Form';
-import Screen from './Screen'
 
 function Window(){
     
     const [index, setIndex] = useState(0)
-
-
-// Extract the values to use them in the cv
-
+    
     const forms = [
     {index:0, title:'Personal Info', text:['Name', 'Email'], number:[ 'Phone Numbers']},
-    {index:1, title:'Education Info',text:['school Name', 'Title of study'], date:['Date of study']},
-    {index:2, title:'Career Info',   text:['Company name' , 'Position title', 'Main responsibilities of your jobs'],
-    date:['started working at', 'to']},
+    {index:1, title:'Education Info',text:['School Name', 'Title of Study'], date:['Date Of Study']},
+    {index:2, title:'Career Info',   text:['Company Same' , 'Position Title', 'Main Responsibilities Of Your Jobs'],
+    date:['Started Working At', 'To']},
     ]
 
         // For forward button
@@ -24,8 +20,6 @@ function Window(){
         else{
             setIndex(0)
         }
-        console.log(index)
-
     }
     // For backward button
     function navigateBack(){
@@ -35,13 +29,11 @@ function Window(){
         else{
             setIndex(forms.length-1)
         }
-        console.log(index)
     }
     
 
     return (
-    <div className='main-content'>
-        <div className='window'>
+        <div className='main-content'>
             <button onClick={navigateBack}>
             {'<'}
             </button>
@@ -57,11 +49,7 @@ function Window(){
             <button onClick={navigateFront}>
             {'>'}
             </button>
-            </div>
-
-        <Screen>
-        </Screen>
-    </div>
+        </div>    
     )
 }
 

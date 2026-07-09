@@ -38,7 +38,15 @@ footer{
 }
 
 .window{
+
+
     display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex: 1 1 100%;
+    width: 100vw;
+    /* flex-direction: column ; */
+
 }
 
 .screen{
@@ -66,9 +74,4 @@ footer{
 
 .main-content{
     display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex: 1 1 100%;
-    width: 100vw;
-    /* flex-direction: column ; */
 }

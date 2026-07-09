@@ -1,9 +1,8 @@
-function Screen(props){
-    return <div className="screen">
-        {/* {props}
-         */}
-         hey
-    </div>
+function Screen(){
+    return (
+    <div className="screen">
+        hello
+    </div>)
 }
 
 export default Screen

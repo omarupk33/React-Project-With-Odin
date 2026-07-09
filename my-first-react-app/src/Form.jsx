@@ -1,9 +1,5 @@
 import { useState } from "react"
-
-// Make it receive more props to work with
-// Help with specifying the type to make the input suitable 
-// Great work! 
-
+import Screen from './Screen'
 
 
 function Form({title ,text, number, date, values, setValues, className}){
@@ -53,41 +49,44 @@ function Form({title ,text, number, date, values, setValues, className}){
 
         const handleChange = (e)=>{
             setValue(e.target.value)
-        } 
+        }
 
         return (
         <div key={element}>
-        <label htmlFor={element}>{element}</label>
+        <label htmlFor={element}>{element}:</label>
         <input type='date'
         value={value}
         onChange={handleChange}
         name={element} id={element} />        
         </div>
-      )
+     )
     })
     
 
 
-    return(
+    return ( 
+    <div className='window'>
+
         <section className={className}>
-            <h2>{title}</h2>
+        <h2>{title}</h2>
         <form>
-        {allText.map((element) =>{
-            return element
+        {allText.map((textInput) =>{
+            return textInput
         })}
 
-        {allNumber.map((element) =>{
-            return element
+        {allNumber.map((numberInput) =>{
+            return numberInput
         })}
 
-        {allDate.map((element) =>{
-            return element
+        {allDate.map((dateInput) =>{
+            return dateInput
         })}
         </form>
         <button>
             Submit
         </button>
         </section>
+        </div>
     )
 }
 
