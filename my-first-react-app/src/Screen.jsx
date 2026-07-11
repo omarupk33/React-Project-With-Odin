@@ -1,4 +1,4 @@
-function Screen(){
+function Screen(props){
     return (
     <div className="screen">
         hello

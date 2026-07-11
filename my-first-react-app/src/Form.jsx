@@ -1,16 +1,25 @@
 import { useState } from "react"
-import Screen from './Screen'
 
 
-function Form({title ,text, number, date, values, setValues, className}){
+function Form({title ,text, number, values , setValues, date, className}){
+
 
     const allText = text.map((element) =>{
 
         const [value, setValue] = useState('')
 
+
         const handleChange = (e)=>{
             setValue(e.target.value)
-        } 
+            setValues((prev) =>({...prev}, {text:value}))
+            console.log(text + '' + value)
+            console.log(text + '' + e.target.value)
+
+        }
+
+    
+
+
 
         return (
         <div key={element}>

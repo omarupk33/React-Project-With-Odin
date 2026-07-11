@@ -1,5 +1,6 @@
 import  {useState}  from 'react';
 import Form from './Form';
+import Screen from './Screen'
 
 function Window(){
     
@@ -11,6 +12,9 @@ function Window(){
     {index:2, title:'Career Info',   text:['Company Same' , 'Position Title', 'Main Responsibilities Of Your Jobs'],
     date:['Started Working At', 'To']},
     ]
+
+    const [values, setValues] = useState({})
+
 
         // For forward button
     function navigateFront(){
@@ -39,7 +43,7 @@ function Window(){
             </button>
             <div className="form_section">
                 {forms.map((object)=>{
-            return  <Form title={object.title} text = {object.text} number={object.number ?? []}
+            return  <Form values={values} setValues={setValues} title={object.title} text = {object.text} number={object.number ?? []}
             date={object.date ?? []}
                 key={object.index}
                 className = {index === object.index ? 'active': 'inactive'}
@@ -49,6 +53,7 @@ function Window(){
             <button onClick={navigateFront}>
             {'>'}
             </button>
+            <Screen></Screen>
         </div>    
     )
 }
