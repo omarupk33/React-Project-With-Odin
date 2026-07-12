@@ -4,33 +4,12 @@ import { useState } from "react"
 function Form({title ,text, number, values , setValues, date, className}){
 
 
-    const allText = text.map((element) =>{
+    // const allText = text.map((element) =>{
 
-        const [value, setValue] = useState('')
-
-
-        const handleChange = (e)=>{
-            setValue(e.target.value)
-            setValues((prev) =>({...prev}, {text:value}))
-            console.log(text + '' + value)
-            console.log(text + '' + e.target.value)
-
+    const handleChange = (e, field) => {
+            setValues((prev) => ({...prev, [field]: e.target.value,}))
+            console.log(e.target.value)
         }
-
-    
-
-
-
-        return (
-        <div key={element}>
-        <label htmlFor={element}>{element}</label>
-        <input type="text"
-        value={value}
-        onChange={handleChange}
-        name={element} id={element} />        
-        </div>
-      )
-    })
 
 
         const allNumber = number.map((element) =>{
@@ -79,17 +58,45 @@ function Form({title ,text, number, values , setValues, date, className}){
         <section className={className}>
         <h2>{title}</h2>
         <form>
-        {allText.map((textInput) =>{
-            return textInput
-        })}
+        {text.map((field) => (
+                <div key={field}>
+                <label htmlFor={field}>{field}:</label>
+                <input
+                    id={field}
+                    name={field}
+                    value={values[field] || ""}
+                    onChange={(e) => handleChange(e, field)}
+                />
+                </div>
+            ))}
 
-        {allNumber.map((numberInput) =>{
-            return numberInput
-        })}
+        {number.map((field) => (
+                <div key={field}>
+                <label htmlFor={field}>{field}:</label>
+                <input
+                    id={field}
+                    type="tel"
+                    name={field}
+                    value={values[field] || ""}
+                    onChange={(e) => handleChange(e, field)}
+                />
+                </div>
+            ))}
 
-        {allDate.map((dateInput) =>{
-            return dateInput
-        })}
+            {date.map((field) => (
+                <div key={field}>
+                <label htmlFor={field}>{field}:</label>
+                <input
+                    id={field}
+                    type="date"
+                    name={field}
+                    value={values[field] || ""}
+                    onChange={(e) => handleChange(e, field)}
+                />
+                </div>
+            ))}
+
+        
         </form>
         <button>
             Submit
