@@ -1,10 +1,11 @@
 import { useState } from "react"
 
 
-function Form({title ,text, number, values , setValues, date, className}){
+function Form({title ,text, number, values , setValues, date,
+     className
+    }){
 
 
-    // const allText = text.map((element) =>{
 
     const handleChange = (e, field) => {
             setValues((prev) => ({...prev, [field]: e.target.value,}))
@@ -53,8 +54,6 @@ function Form({title ,text, number, values , setValues, date, className}){
 
 
     return ( 
-    <div className='window'>
-
         <section className={className}>
         <h2>{title}</h2>
         <form>
@@ -102,7 +101,6 @@ function Form({title ,text, number, values , setValues, date, className}){
             Submit
         </button>
         </section>
-        </div>
     )
 }
 

@@ -9,7 +9,7 @@ function Window(){
     const forms = [
     {index:0, title:'Personal Info', text:['Name', 'Email'], number:[ 'Phone Numbers']},
     {index:1, title:'Education Info',text:['School Name', 'Title of Study'], date:['Date Of Study']},
-    {index:2, title:'Career Info',   text:['Company Same' , 'Position Title', 'Main Responsibilities Of Your Jobs'],
+    {index:2, title:'Career Info',   text:['Company Name' , 'Position Title', 'Main Responsibilities Of Your Jobs'],
     date:['Started Working At', 'To']},
     ]
 
@@ -38,6 +38,7 @@ function Window(){
 
     return (
         <div className='main-content'>
+            <div className='window'>
             <button onClick={navigateBack}>
             {'<'}
             </button>
@@ -53,8 +54,11 @@ function Window(){
             <button onClick={navigateFront}>
             {'>'}
             </button>
-            <Screen></Screen>
+            </div>
+            <Screen object = {values}></Screen>
+
         </div>    
+
     )
 }
 
