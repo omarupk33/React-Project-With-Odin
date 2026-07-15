@@ -39,6 +39,13 @@ footer{
 
 .window{
     display: flex;
+
+    align-items: center;
+}
+
+.navigation-button{
+    height: 15vw;
+    border-radius: 25%;
 }
 
 .form_section{
@@ -65,35 +72,62 @@ footer{
     gap: 3vw;
     min-width: 100vw;
     justify-content: space-around;
-    background-color: rgb(197, 127, 255);
+    background-color: rgb(69, 15, 114);
+    overflow: scroll;
+
 }
 
 
 .screen{
     min-width: 20vw;
-    max-width: 20vw;
-
-    height: 30vw;
     display: flex;
+    border-radius: 15px;
+    border: 2px solid black;
     flex-direction:column;
-    /* justify-content: center;
-    align-items: center; */
     background-color: paleturquoise;
 }
 
 .screen > h3{
     justify-self: center;
     align-self: center;
+
 }
 
 .personal-info{
- background-color: brown;   
+ /* background-color: rgb(204, 53, 53);    */
+ border-bottom: 2px solid #00000069;
+ padding-bottom: 13px;
+    margin: 1vw;
+
 }
 
+.personal-info > :nth-child(1){
+    font-size: larger;
+    justify-self:center;
+    align-self: center
+}
+
+/* .personal-info > :nth-child(2){
+
+}
+
+
+.personal-info > :nth-child(3){
+
+} */
+
+
 .eduaction-info{
- background-color: rgb(128, 165, 42);   
+  display: grid;
+  font-size: large;
+  border-bottom: 2px solid #00000069;
+  padding-bottom: 13px;
+  margin: 1vw;
+
 }
 
 .company-info{
- background-color: rgb(151, 42, 165);   
+ /* background-color: rgb(151, 42, 165);    */
+    margin: 1vw;
+    font-size: large;
 }

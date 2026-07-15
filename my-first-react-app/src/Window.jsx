@@ -7,7 +7,7 @@ function Window(){
     const [index, setIndex] = useState(0)
     
     const forms = [
-    {index:0, title:'Personal Info', text:['Name', 'Email'], number:[ 'Phone Numbers']},
+    {index:0, title:'Personal Info', text:['Name', 'Email'], number:[ 'Phone Number']},
     {index:1, title:'Education Info',text:['School Name', 'Title of Study'], date:['Date Of Study']},
     {index:2, title:'Career Info',   text:['Company Name' , 'Position Title', 'Main Responsibilities Of Your Jobs'],
     date:['Started Working At', 'To']},
@@ -39,7 +39,7 @@ function Window(){
     return (
         <div className='main-content'>
             <div className='window'>
-            <button onClick={navigateBack}>
+            <button className='navigation-button' onClick={navigateBack}>
             {'<'}
             </button>
             <div className="form_section">
@@ -51,7 +51,7 @@ function Window(){
                 ></Form>
                 })}
             </div>
-            <button onClick={navigateFront}>
+            <button className='navigation-button' onClick={navigateFront}>
             {'>'}
             </button>
             </div>

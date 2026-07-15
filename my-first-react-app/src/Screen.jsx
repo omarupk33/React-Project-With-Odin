@@ -2,24 +2,19 @@ function Screen({object}){
     return (
     <div className="screen">
         <div className="personal-info">
-        <h3>
-            Personal Info
-        </h3>
+
         <h4>
-        Full Name: {object['Name']}            
+        {object['Name'] || 'Full Name:'}            
         </h4>
         <h4>
-        Email: {object['Email']}
+         {object['Email'] || 'Email:'}
         </h4>
         <h4>
-        Phone: {object['Phone Numbers']}
+         {object['Phone Number'] || 'Phone:' }
         </h4>
         </div>
 
         <div className="eduaction-info">
-        <h3>
-        Eduaction Info
-        </h3>
         <h4>
         School Name: {object['School Name']}
         </h4>
@@ -34,9 +29,7 @@ function Screen({object}){
         </div>
         
         <div className="company-info">
-        <h3>
-        Company Info
-        </h3>
+
         <h4>
         Company Name: {object['Company Name']}
         </h4>
