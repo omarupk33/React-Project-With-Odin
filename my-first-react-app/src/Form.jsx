@@ -9,49 +9,8 @@ function Form({title ,text, number, values , setValues, date,
 
     const handleChange = (e, field) => {
             setValues((prev) => ({...prev, [field]: e.target.value,}))
-            console.log(e.target.value)
         }
-
-
-        const allNumber = number.map((element) =>{
-
-        const [value, setValue] = useState('')
-
-        const handleChange = (e)=>{
-            setValue(e.target.value)
-        }
-
-        return (
-        <div key={element}>
-        <label htmlFor={element}>{element}</label>
-        <input type="tel"
-        value={value}
-        onChange={handleChange}
-        name={element} id={element} />        
-        </div>
-      )
-    })
-
-       const allDate = date.map((element) =>{
-
-        const [value, setValue] = useState('')
-
-        const handleChange = (e)=>{
-            setValue(e.target.value)
-        }
-
-        return (
-        <div key={element}>
-        <label htmlFor={element}>{element}:</label>
-        <input type='date'
-        value={value}
-        onChange={handleChange}
-        name={element} id={element} />        
-        </div>
-     )
-    })
     
-
 
     return ( 
         <section className={className}>
@@ -65,6 +24,7 @@ function Form({title ,text, number, values , setValues, date,
                     name={field}
                     value={values[field] || ""}
                     onChange={(e) => handleChange(e, field)}
+                    required={true}
                 />
                 </div>
             ))}
@@ -78,6 +38,7 @@ function Form({title ,text, number, values , setValues, date,
                     name={field}
                     value={values[field] || ""}
                     onChange={(e) => handleChange(e, field)}
+                    required='true'
                 />
                 </div>
             ))}
@@ -91,15 +52,16 @@ function Form({title ,text, number, values , setValues, date,
                     name={field}
                     value={values[field] || ""}
                     onChange={(e) => handleChange(e, field)}
+                    required='true'
                 />
                 </div>
             ))}
 
-        
-        </form>
-        <button>
+         <button className="submit-button" onClick={(btn)=>{btn.preventDefault()}}>
             Submit
         </button>
+        </form>
+
         </section>
     )
 }

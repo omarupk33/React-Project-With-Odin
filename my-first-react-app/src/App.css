@@ -21,10 +21,8 @@ header  {
 }
 
 main{
-    background-color: rgb(237, 100, 100);
-    min-height: 20vw;
+    background-color: rgb(111, 237, 100);
     display: flex;
-    flex: auto 1 1;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
@@ -39,7 +37,6 @@ footer{
 
 .window{
     display: flex;
-
     align-items: center;
 }
 
@@ -74,12 +71,13 @@ footer{
     justify-content: space-around;
     background-color: rgb(69, 15, 114);
     overflow: scroll;
-
 }
 
 
 .screen{
     min-width: 20vw;
+    max-width: 23vw;
+    word-break: normal;
     display: flex;
     border-radius: 15px;
     border: 2px solid black;
@@ -97,14 +95,14 @@ footer{
  /* background-color: rgb(204, 53, 53);    */
  border-bottom: 2px solid #00000069;
  padding-bottom: 13px;
-    margin: 1vw;
+    
 
 }
 
 .personal-info > :nth-child(1){
     font-size: larger;
     justify-self:center;
-    align-self: center
+    align-self: center;
 }
 
 /* .personal-info > :nth-child(2){
@@ -122,12 +120,11 @@ footer{
   font-size: large;
   border-bottom: 2px solid #00000069;
   padding-bottom: 13px;
-  margin: 1vw;
+  
 
 }
 
 .company-info{
  /* background-color: rgb(151, 42, 165);    */
-    margin: 1vw;
     font-size: large;
 }
