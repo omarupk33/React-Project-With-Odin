@@ -14,6 +14,7 @@ function Window(){
     ]
 
     const [values, setValues] = useState({})
+    
 
 
         // For forward button
@@ -35,10 +36,18 @@ function Window(){
         }
     }
     
+    const [isActive, setActive] = useState(true)
+
+    const changeForm = ()=>{
+        if(isActive){
+        setActive(false)}
+        else{setActive(true)}
+    }
+
 
     return (
         <div className='main-content'>
-            <div className='window'>
+            <div id='window' className= {isActive ? 'active' : 'inActive'}>
             <button className='navigation-button' onClick={navigateBack}>
             {'<'}
             </button>
@@ -56,7 +65,9 @@ function Window(){
             </button>
             </div>
             <Screen object = {values}></Screen>
-
+            <button id='showBtn' onClick={()=>{changeForm()}} >
+               {isActive ? 'Okay' : 'Edit'}
+            </button>
         </div>    
 
     )

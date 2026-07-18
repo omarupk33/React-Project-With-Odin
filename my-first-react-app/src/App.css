@@ -35,7 +35,7 @@ footer{
     align-items: center;
 }
 
-.window{
+#window{
     display: flex;
     align-items: center;
 }
@@ -70,7 +70,7 @@ footer{
     min-width: 100vw;
     justify-content: space-around;
     background-color: rgb(69, 15, 114);
-    overflow: scroll;
+    /* overflow: scroll; */
 }
 
 
@@ -105,15 +105,6 @@ footer{
     align-self: center;
 }
 
-/* .personal-info > :nth-child(2){
-
-}
-
-
-.personal-info > :nth-child(3){
-
-} */
-
 
 .eduaction-info{
   display: grid;
@@ -127,4 +118,20 @@ footer{
 .company-info{
  /* background-color: rgb(151, 42, 165);    */
     font-size: large;
+}
+
+button.active{
+    display: block;
+}
+button.inactive{
+    display: none;
+}
+
+#window.inActive{
+    display: none;
+}
+
+#showBtn{
+    position: absolute;
+    bottom: 50%;
 }

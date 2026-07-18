@@ -10,7 +10,6 @@ function Form({title ,text, number, values , setValues, date,
     const handleChange = (e, field) => {
             setValues((prev) => ({...prev, [field]: e.target.value,}))
         }
-    
 
     return ( 
         <section className={className}>
@@ -56,10 +55,6 @@ function Form({title ,text, number, values , setValues, date,
                 />
                 </div>
             ))}
-
-         <button className="submit-button" onClick={(btn)=>{btn.preventDefault()}}>
-            Submit
-        </button>
         </form>
 
         </section>
