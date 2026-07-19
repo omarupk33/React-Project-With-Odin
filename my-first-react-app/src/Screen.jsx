@@ -1,54 +1,54 @@
-function Screen({object}){
+function Screen({object, className}){
     return (
-    <div className="screen">
+    <div className={className}>
         <div className="personal-info">
 
-        <h4>
+        <p>
         {object['Name'] || 'Full Name:'}            
-        </h4>
-        <h4>
+        </p>
+        <p>
          {object['Email'] || 'Email:'}
-        </h4>
-        <h4>
+        </p>
+        <p>
          {object['Phone Number'] || 'Phone:' }
-        </h4>
+        </p>
         </div>
 
         <div className="eduaction-info">
-        <h4>
+        <p>
         School Name: {object['School Name']}
-        </h4>
+        </p>
 
-        <h4>
+        <p>
             Title: {object['Title of Study']}
-        </h4>
+        </p>
 
-        <h4>
+        <p>
             Date: {object['Date Of Study']}
-        </h4>
+        </p>
         </div>
         
         <div className="company-info">
 
-        <h4>
+        <p>
         Company Name: {object['Company Name']}
-        </h4>
+        </p>
 
-        <h4>
+        <p>
             Title: {object['Position Title']}
-        </h4>
+        </p>
 
-        <h4>
+        <p>
             Main Responsibilities: {object['Main Responsibilities Of Your Jobs']}
-        </h4>
+        </p>
 
-        <h4>
+        <p>
             Started working in: {object['Started Working At']}
-        </h4>
+        </p>
 
-        <h4>
+        <p>
             To: {object['To']}
-        </h4>
+        </p>
 
         </div>
 

@@ -22,8 +22,8 @@ function Form({title ,text, number, values , setValues, date,
                     id={field}
                     name={field}
                     value={values[field] || ""}
+                    maxLength={100}
                     onChange={(e) => handleChange(e, field)}
-                    required={true}
                 />
                 </div>
             ))}
@@ -37,7 +37,7 @@ function Form({title ,text, number, values , setValues, date,
                     name={field}
                     value={values[field] || ""}
                     onChange={(e) => handleChange(e, field)}
-                    required='true'
+                    maxLength={20}
                 />
                 </div>
             ))}
@@ -51,7 +51,6 @@ function Form({title ,text, number, values , setValues, date,
                     name={field}
                     value={values[field] || ""}
                     onChange={(e) => handleChange(e, field)}
-                    required='true'
                 />
                 </div>
             ))}

@@ -1,14 +1,15 @@
-body, html{
-    padding: 0;
-    margin: 0;
+html, body, #root {
+  height: 100%;
+  padding: 0;
+  margin: 0;
 }
 
+
 #root{
-  height: 100vh;
-  display: flex;
-  background-color: black;
-  flex-direction: column;
-  justify-content: space-between;
+display: flex;
+flex-direction: column;
+justify-content: space-around; 
+align-items: stretch; 
 }
 
 header  {
@@ -17,25 +18,28 @@ header  {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 5vw;
 }
 
-main{
-    background-color: rgb(111, 237, 100);
+
+
+.main-content{
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    gap: 3vw;
+
+    justify-content: center;
     align-items: center;
+    background-color: rgb(69, 15, 114);
 }
+
+
 footer{
     background-color: cornflowerblue;
-    min-height: 5vw;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-#window{
+.window{
     display: flex;
     align-items: center;
 }
@@ -45,44 +49,33 @@ footer{
     border-radius: 25%;
 }
 
-.form_section{
+
+ section{
     display: flex;
     flex-direction: column;
-    gap: 2vw;
     height: 20vw;
     width: 20vw;
-    overflow: hidden;
-    background-color: rgb(237, 228, 100);
+    padding: 2vw;
+    justify-content: space-evenly;
+ background-color: rgb(151, 42, 165);   
 }
 
-
-.active{
-    display: block;
+form > *{
+    margin: 1vw;
 }
-
-.inactive{
-    display: none;
-}
-
-.main-content{
-    display: flex;
-    gap: 3vw;
-    min-width: 100vw;
-    justify-content: space-around;
-    background-color: rgb(69, 15, 114);
-    /* overflow: scroll; */
-}
-
 
 .screen{
     min-width: 20vw;
-    max-width: 23vw;
-    word-break: normal;
+    min-height: 20vw;
     display: flex;
     border-radius: 15px;
     border: 2px solid black;
     flex-direction:column;
-    background-color: paleturquoise;
+    background-color: rgb(42, 136, 165);   
+}
+
+.screen > *{
+    margin: 2vw;
 }
 
 .screen > h3{
@@ -91,12 +84,17 @@ footer{
 
 }
 
+.screen.zoomIn{
+position: absolute;
+}
+.screen.zoomOut{
+display: block;
+
+}
+
 .personal-info{
- /* background-color: rgb(204, 53, 53);    */
  border-bottom: 2px solid #00000069;
  padding-bottom: 13px;
-    
-
 }
 
 .personal-info > :nth-child(1){
@@ -116,22 +114,37 @@ footer{
 }
 
 .company-info{
- /* background-color: rgb(151, 42, 165);    */
     font-size: large;
 }
 
-button.active{
+/* button.active{
     display: block;
 }
 button.inactive{
     display: none;
+} */
+
+
+
+
+ /* #showBtn.okay{
+    position: absolute;
+    bottom: 50%;
 }
 
-#window.inActive{
+#showBtn.edit{
+    position: absolute;
+    bottom: 50%;   
+} */
+
+.active{
+    display: flex;
+}
+
+.inactive{
     display: none;
 }
 
-#showBtn{
-    position: absolute;
-    bottom: 50%;
+#doneBtn{
+    width: 9vw;
 }

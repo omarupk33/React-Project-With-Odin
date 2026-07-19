@@ -44,14 +44,24 @@ function Window(){
         else{setActive(true)}
     }
 
+    const [isZoomed, setZoom] = useState(false)
+
+    const zoomIn = ()=>{
+        setZoom(true)
+    }
+
+    const zoomOut = ()=>{
+        setZoom(false)
+    }
+
 
     return (
         <div className='main-content'>
-            <div id='window' className= {isActive ? 'active' : 'inActive'}>
+            <div className= {isActive ? 'window active' : 'window inactive'}>
             <button className='navigation-button' onClick={navigateBack}>
             {'<'}
             </button>
-            <div className="form_section">
+
                 {forms.map((object)=>{
             return  <Form values={values} setValues={setValues} title={object.title} text = {object.text} number={object.number ?? []}
             date={object.date ?? []}
@@ -59,15 +69,21 @@ function Window(){
                 className = {index === object.index ? 'active': 'inactive'}
                 ></Form>
                 })}
-            </div>
+
             <button className='navigation-button' onClick={navigateFront}>
             {'>'}
             </button>
             </div>
-            <Screen object = {values}></Screen>
-            <button id='showBtn' onClick={()=>{changeForm()}} >
+            <Screen object = {values} className={isZoomed ? 'screen zoomIn' : 'screen zoomOut'}></Screen>
+            <button id='showBtn' onClick={()=>{changeForm()}} className={isActive ? 'okay' : 'edit'} >
                {isActive ? 'Okay' : 'Edit'}
             </button>
+
+
+            <button id='doneBtn' onClick={()=>{zoomIn()}} className= {isActive ? 'inactive' : 'active'} >
+               Done!
+            </button>
+
         </div>    
 
     )
