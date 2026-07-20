@@ -22,7 +22,7 @@ function Form({title ,text, number, values , setValues, date,
                     id={field}
                     name={field}
                     value={values[field] || ""}
-                    maxLength={100}
+                    maxLength={60}
                     onChange={(e) => handleChange(e, field)}
                 />
                 </div>

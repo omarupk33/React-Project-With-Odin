@@ -1,6 +1,6 @@
-function Screen({object, className}){
+function Screen({object}){
     return (
-    <div className={className}>
+    <div className='screen'>
         <div className="personal-info">
 
         <p>

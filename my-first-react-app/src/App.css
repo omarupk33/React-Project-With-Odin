@@ -6,15 +6,16 @@ html, body, #root {
 
 
 #root{
-display: flex;
-flex-direction: column;
-justify-content: space-around; 
-align-items: stretch; 
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between; 
+    align-items: stretch; 
 }
 
-header  {
+header{
     background-color: rgb(121, 100, 237);
     display: flex;
+    flex: auto;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -24,10 +25,10 @@ header  {
 
 .main-content{
     display: flex;
-    gap: 3vw;
-
     justify-content: center;
     align-items: center;
+    gap: 3vw;
+    flex: auto;
     background-color: rgb(69, 15, 114);
 }
 
@@ -35,6 +36,8 @@ header  {
 footer{
     background-color: cornflowerblue;
     display: flex;
+    flex: auto;
+
     justify-content: center;
     align-items: center;
 }
@@ -57,7 +60,7 @@ footer{
     width: 20vw;
     padding: 2vw;
     justify-content: space-evenly;
- background-color: rgb(151, 42, 165);   
+    background-color: rgb(151, 42, 165);   
 }
 
 form > *{
@@ -66,12 +69,11 @@ form > *{
 
 .screen{
     min-width: 20vw;
-    min-height: 20vw;
     display: flex;
     border-radius: 15px;
     border: 2px solid black;
     flex-direction:column;
-    background-color: rgb(42, 136, 165);   
+    background-color: rgb(177, 226, 241);   
 }
 
 .screen > *{
@@ -84,17 +86,10 @@ form > *{
 
 }
 
-.screen.zoomIn{
-position: absolute;
-}
-.screen.zoomOut{
-display: block;
-
-}
 
 .personal-info{
- border-bottom: 2px solid #00000069;
- padding-bottom: 13px;
+    border-bottom: 2px solid #00000069;
+    padding-bottom: 13px;
 }
 
 .personal-info > :nth-child(1){
@@ -117,25 +112,6 @@ display: block;
     font-size: large;
 }
 
-/* button.active{
-    display: block;
-}
-button.inactive{
-    display: none;
-} */
-
-
-
-
- /* #showBtn.okay{
-    position: absolute;
-    bottom: 50%;
-}
-
-#showBtn.edit{
-    position: absolute;
-    bottom: 50%;   
-} */
 
 .active{
     display: flex;
@@ -147,4 +123,32 @@ button.inactive{
 
 #doneBtn{
     width: 9vw;
+}
+
+
+.popup{
+    background-color: rgba(0, 0, 0, 0.432);
+    width: 100%;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 90%;
+    position:fixed;
+    bottom: 20px;
+}
+
+.popup.inactive{
+    display: none;
+}
+
+.cancel_button{
+   background-color: red;
+   min-width:10vw;
+}
+
+.download_button{
+   background-color: rgb(0, 255, 21);
+   min-width:10vw;
 }

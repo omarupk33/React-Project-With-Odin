@@ -74,7 +74,19 @@ function Window(){
             {'>'}
             </button>
             </div>
-            <Screen object = {values} className={isZoomed ? 'screen zoomIn' : 'screen zoomOut'}></Screen>
+            {isZoomed ? 
+            
+            <div className={isZoomed ? 'popup' : 'popup inactive'}>
+
+            <div>
+                <button className='cancel_button' onClick={zoomOut}>X</button>
+                <button className='download_button'>Download</button>
+            </div>
+
+            <Screen object = {values}></Screen>
+            </div>
+              : <Screen object={values}></Screen>}
+
             <button id='showBtn' onClick={()=>{changeForm()}} className={isActive ? 'okay' : 'edit'} >
                {isActive ? 'Okay' : 'Edit'}
             </button>
