@@ -1,7 +1,7 @@
 function Footer(){
     return (
         <footer>
-            Footer
+            ©All Rights go to Omar
         </footer>
     )
 }
