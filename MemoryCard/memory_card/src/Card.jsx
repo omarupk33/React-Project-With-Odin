@@ -1,13 +1,14 @@
 import { useState } from "react"
 
 function Card({num}){
-        const [focused, setFocus] = useState('notFocused')
+        const [focused, setFocus] = useState('')
         const focusStyle = ()=>{
-         setFocus('focused')
+        if(!focused){setFocus('focused')}
+        else(setFocus(''))
         }
+
     return (
-        <div onMouseEnter={()=>{focusStyle()}} className= {focused ? focused : ''}
-             onMouseLeave={()=>{setFocus('notFocused')}}
+        <div onClick={()=>{focusStyle()}} className= {focused ? focused : ''}
         tabIndex={0}>{num}</div>
     )
 }
