@@ -10,7 +10,6 @@ body,html{
 
 #root{
   display: flex;
-  flex: 1 1 100%;
   height: 100vh;
   background-color: rgb(10, 228, 82);
   flex-direction: column;
@@ -49,18 +48,18 @@ center > * > *{
   color: white;
   width: 5vw;
   height: 5vw;
-  /* text-align: center; */
+  font-size: 2vw;
+  text-align: center;
   transition: all 0.2s ease-in 0.2s;
 }
 
 
 
-center > * > *.focused{
+ center > * > *.focused{
   background-color: rgb(8, 9, 114);
   color: white;
   grid-column: 2/3;
-
-  transform: scale(3);
+  transform: scale(2);
 
 }
 
