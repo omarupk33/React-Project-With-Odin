@@ -6,28 +6,29 @@ function Card({num}){
 
     const [data, setData] = useState([])    
 
-
+    
+    useEffect(()=>{
     async function fetchData(){
+        
         try{
-            const response = await fetch('https://db.ygoprodeck.com/api/v7/cardinfo.php')
+            const response = await fetch('https://pokeapi.co/api/v2/pokemon/ditto')
                 if(!response.ok){
                 throw new Error(`Error: ${response.status}`)}
             
             const json = response.json()
             setData(json)
 
-            } catch (error) {
+            }            
+            catch (error) {
         console.error('Fetch operation failed:', error.message);
         }
+
         }
-        fetchData()
-        console.log(data)
+    fetchData()
 
 
-    // useEffect(()=>{
-
-
-    // }, [data])
+    }, [num])
+            console.log(data.forms.at(0))
 
 
 
@@ -39,7 +40,7 @@ function Card({num}){
 
     return (
         <div onClick={()=>{focusStyle()}} className= {focused ? focused : ''}
-        tabIndex={0}>{data}</div>
+        tabIndex={0}>{num}</div>
     )
 }
 
