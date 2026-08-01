@@ -11,7 +11,8 @@ function Card({num}){
     async function fetchData(){
         
         try{
-            const response = await fetch('https://pokeapi.co/api/v2/pokemon/ditto')
+            // Change to giphy api
+            const response = await fetch('https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExc2N3NGRzdWhoeXkzbHpiY3F6dXdrcnRyNDVuYmJ4Mmk5NHFweG1udCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/igKgfEieleNP5YY0ag/giphy.gif')
                 if(!response.ok){
                 throw new Error(`Error: ${response.status}`)}
             
@@ -28,7 +29,7 @@ function Card({num}){
 
 
     }, [num])
-            console.log(data.forms.at(0))
+            console.log(data)
 
 
 

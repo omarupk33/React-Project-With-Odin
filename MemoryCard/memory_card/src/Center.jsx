@@ -1,5 +1,5 @@
 import Card from './Card'
-
+import Counter from './Counter'
 function Center(){
     return (
 
@@ -34,6 +34,7 @@ function Center(){
         <Card num={14}></Card>
         <Card num={15}></Card> */}
         </div>
+        {/* <Counter></Counter> */}
         </center>
     )
 }

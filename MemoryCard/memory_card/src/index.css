@@ -71,3 +71,9 @@ footer{
   align-items: center;
   justify-content: center;
 }
+
+.count-container{
+  width: 200px;
+  height: 200px;
+  font-size: larger;
+}
