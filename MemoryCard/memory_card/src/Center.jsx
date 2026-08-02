@@ -1,15 +1,40 @@
 import Card from './Card'
 import Counter from './Counter'
 function Center(){
+
+
+    // const [data, setData] = useState([])    
+
+    
+    // useEffect(()=>{
+    // async function fetchData(){
+        
+    //     try{
+    //         // Change to giphy api
+    //         const response = await fetch('https://api.giphy.com/v1/gifs/search?api_key=6uFEXyu7kVpkQyoPVtRKjyWKG1viZl7H&q=yugioh&limit=16&offset=0&rating=pg-13&lang=en&bundle=messaging_non_clips')
+    //             if(!response.ok){
+    //             throw new Error(`Error: ${response.status}`)}
+            
+    //         const json = await response.json()
+    //         setData(json)
+
+    //         }            
+    //         catch (error) {
+    //     console.error('Fetch operation failed:', error.message);
+    //     }
+
+    //     }
+    //     fetchData()
+
+    //     // alert here
+    // }, [num])
+
+    //          console.log(Object.values(data).at(0).at({num}).images.original.url)
+
     return (
 
-    // split up some of the logic to new two parents and make this each parent take a row for itself
-    // When a card is hovered over, use transition to move it to the center of the screen.  
-    
-    // We need focused for the parent as well
-
-
-        <center>
+        <center>  
+         <Counter></Counter>
         <div className='column1'>
         {/* <Card num={1}></Card>
         <Card num={2}></Card>
@@ -22,7 +47,7 @@ function Center(){
         <div className='column3'>
         {/* <Card num={6}></Card>
         <Card num={7}></Card> */}
-        <Card num={8}></Card>
+        {/* <Card num={8}></Card> */}
         {/* <Card num={9}></Card>
         <Card num={10}></Card> */}
         </div>
@@ -34,7 +59,7 @@ function Center(){
         <Card num={14}></Card>
         <Card num={15}></Card> */}
         </div>
-        {/* <Counter></Counter> */}
+
         </center>
     )
 }

@@ -73,7 +73,8 @@ footer{
 }
 
 .count-container{
-  width: 200px;
-  height: 200px;
-  font-size: larger;
+  display: flex;
+  /* flex-direction: column; */
+
+  background-color: #250597;
 }

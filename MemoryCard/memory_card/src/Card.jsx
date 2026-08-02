@@ -1,37 +1,15 @@
 import { useState, useEffect } from "react"
 
 
-function Card({num}){
+function Card({url , num, object}){
+    // Since we changed the location of the fetchData, we need to do a bit of changes to fix the code and make it work properly
 
-
-    const [data, setData] = useState([])    
-
+        let image
+        if(data){
+          image = <img src={Object.values(data).at(0).at({num}).images.original.url}
+          alt={Object.values(data).at(0).at({num}).url} />
+        }
     
-    useEffect(()=>{
-    async function fetchData(){
-        
-        try{
-            // Change to giphy api
-            const response = await fetch('https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExc2N3NGRzdWhoeXkzbHpiY3F6dXdrcnRyNDVuYmJ4Mmk5NHFweG1udCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/igKgfEieleNP5YY0ag/giphy.gif')
-                if(!response.ok){
-                throw new Error(`Error: ${response.status}`)}
-            
-            const json = response.json()
-            setData(json)
-
-            }            
-            catch (error) {
-        console.error('Fetch operation failed:', error.message);
-        }
-
-        }
-    fetchData()
-
-
-    }, [num])
-            console.log(data)
-
-
 
         const [focused, setFocus] = useState('')
         const focusStyle = ()=>{
@@ -41,7 +19,10 @@ function Card({num}){
 
     return (
         <div onClick={()=>{focusStyle()}} className= {focused ? focused : ''}
-        tabIndex={0}>{num}</div>
+        tabIndex={0}>
+        {image}
+
+        </div>
     )
 }
 

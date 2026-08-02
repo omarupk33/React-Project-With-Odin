@@ -3,12 +3,11 @@ import { useEffect, useState } from "react"
 function Counter({current}){
     
     const [curr, setCurrent] = useState(0)
+    const [best, setBest] = useState(0)
 
-    let best = 0
 // Something is wrong here
     useEffect(()=>{
-
-         best = 1
+         if(curr>best) setBest(curr)
     }, [curr]) 
 
 
@@ -18,10 +17,15 @@ function Counter({current}){
 
     return (
         <div className='count-container'>
-        <h1>{curr}</h1>
-        <h1>{best}</h1>
-        <button onClick={()=>{updateBest()}}> Increment by one</button>
-        <button onClick={()=>{setCurrent(curr-1)}}> decrease by one</button>
+        <div>
+            <h1>{curr}</h1>
+            <button onClick={()=>{updateBest()}}> Increment by one</button>
+        </div>
+        <div>
+            <h1>{best}</h1>
+            <button onClick={()=>{setCurrent(curr-1)}}> decrease by one</button>           
+        </div>
+  
 
         </div>
     )
