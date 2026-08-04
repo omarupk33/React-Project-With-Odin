@@ -1,7 +1,10 @@
+import Counter from './Counter'
+
 function Header(){
     return (
         <header>
-            5D's memo Challenge!!
+            <h1>5D's memo Challenge!!</h1>
+         <Counter></Counter>
         </header>
     )
 }

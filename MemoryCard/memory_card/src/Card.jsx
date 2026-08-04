@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react"
 
 
-function Card({url , num, object}){
+function Card({ num, data}){
     // Since we changed the location of the fetchData, we need to do a bit of changes to fix the code and make it work properly
 
         let image
         if(data){
-          image = <img src={Object.values(data).at(0).at({num}).images.original.url}
-          alt={Object.values(data).at(0).at({num}).url} />
+          image = <img width='150vw' height='130vw' src={Object.values(data).at(0).at(num).images.original.url}
+          alt={Object.values(data).at(0).at(num).url} />
         }
     
 
@@ -25,6 +25,5 @@ function Card({url , num, object}){
         </div>
     )
 }
-
 
 export default Card

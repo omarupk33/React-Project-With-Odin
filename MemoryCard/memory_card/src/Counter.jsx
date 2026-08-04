@@ -26,7 +26,6 @@ function Counter({current}){
             <button onClick={()=>{setCurrent(curr-1)}}> decrease by one</button>           
         </div>
   
-
         </div>
     )
 }
