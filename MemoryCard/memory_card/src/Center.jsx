@@ -16,7 +16,7 @@ function Center(){
 
             }            
         catch (error) {
-        // console.error('Fetch operation failed:', error.message);
+        console.error('Fetch operation failed:', error.message);
     }
     }
 
@@ -25,32 +25,36 @@ function Center(){
     }, [])
 
 
-    // The card game I decided to make is a matching cards type of games.
+    const [listOfCards, setListOfCards ]= useState([])
+
+    useEffect(()=>{
+    let manageCards = () =>{
+        // Adding usestate to a list is forbidden. Look through other sols
+        if(Object.values(data).at(0)){
+        for(let i = 0; i <= 7; i++){
+            for(let j = 0; j < 2;j++){
+            setListOfCards(prev => [...prev, <Card num={i} data={data} key={number}></Card>
+            ])
+            }
+        }
+    }
+}
+    manageCards()
+    console.log(listOfCards)
+
+
+    }, [data])
+
+
 
     return (
         <center>  
-        <Card num={0} data={data}></Card>
-        <Card num={1} data={data}></Card>
-        <Card num={2} data={data}></Card>
-        <Card num={3} data={data}></Card>
-        <Card num={4} data={data}></Card>
-        <Card num={5} data={data}></Card>
-     
-
-        <Card num={6} data={data}></Card>
-        <Card num={7} data={data}></Card>
-        <Card num={0} data={data}></Card>
-        <Card num={1} data={data}></Card>
-        <Card num={2} data={data}></Card>
-   
-
-        <Card num={3} data={data}></Card>
-        <Card num={4} data={data}></Card>
-        <Card num={5} data={data}></Card>
-        <Card num={6} data={data}></Card>
-        <Card num={7} data={data}></Card>
-
-
+            
+            {listOfCards
+             .map(
+                // Shuffle cards here
+                e => e)
+             }
         </center>
     )
 }
