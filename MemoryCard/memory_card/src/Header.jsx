@@ -3,7 +3,7 @@ import Counter from './Counter'
 function Header(){
     return (
         <header>
-            <h1>5D's memo Challenge!!</h1>
+            <h1>Api matching Cards!</h1>
          <Counter></Counter>
         </header>
     )
