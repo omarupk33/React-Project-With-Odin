@@ -6,7 +6,7 @@ function Card({ num, data}){
 
         let image
         if(Object.values(data).at(0)){
-          image = <img width='150vw' height='130vw' src={Object.values(data).at(0).at(num).images.original.url}
+          image = <img  width='100%' height='100%' src={Object.values(data).at(0).at(num).images.original.url}
           alt={Object.values(data).at(0).at(num).url} />
         }
     
@@ -18,11 +18,19 @@ function Card({ num, data}){
         }
 
     return (
-        <div onClick={()=>{focusStyle()}} className= {focused ? focused : ''}
-        tabIndex={0}>
-        {image}
+        <div className="flip-box">
+            <div className="flip-box-inner">
+                <div className="flip-box-front">
+                {image}
+                </div>
 
+                <div className="flip-box-back">
+                </div>
+            </div>
         </div>
+
+
+
     )
 }
 

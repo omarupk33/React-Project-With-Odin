@@ -30,28 +30,7 @@ center{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   place-items: center;
-  
-}
-
-
-
-center > *{
-  background-color: rgb(191, 17, 197);
-  color: white;
-  width: 5vw;
-  height: 5vw;
-  font-size: 2vw;
-  text-align: center;
-  transition: all 0.2s ease-in 0.2s;
-}
-
-
-
- center > *.focused{
-  background-color: rgb(8, 9, 114);
-  color: white;
-  transform: scale(2);
-
+  gap: 0.3vw;  
 }
 
 
@@ -66,4 +45,42 @@ footer{
 .count-container{
   display: flex;
   background-color: #250597;
+}
+
+
+.flip-box{
+  background-color:transparent;
+  width: 5vw;
+  height: 10vw;
+  border:1px solid #f1f1f1;
+  perspective: 1000px;
+}
+
+.flip-box-inner{
+position: relative;
+width: 100%;
+height: 100%;
+text-align: center;
+transition: transform 0.8s;
+transform-style: preserve-3d;
+}
+
+.flip-box:hover .flip-box-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-box-front, .flip-box-back{
+  position: absolute;
+  width:100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.flip-box.front{
+
+}
+.flip-box-back{
+  background-color: dodgerblue;
+  color: white;
+  transform: rotateY(180deg);
 }
