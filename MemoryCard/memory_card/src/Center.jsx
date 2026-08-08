@@ -1,8 +1,18 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, use } from "react"
 import Card from './Card'
 
 function Center(){
     const [data, setData] = useState([])
+    const [listOfCards, setListOfCards ]= useState([])
+    const [flip, setFlip] = useState({})
+
+    function handleFlip(id, state){
+        // if(!Object.keys(flip).includes(id)){
+            setFlip({...flip, [id]:state})
+        // }
+    }
+
+    console.log(flip)
 
     useEffect(()=>{
     async function fetchData(){
@@ -21,24 +31,22 @@ function Center(){
     }
 
     fetchData()
-
     }, [])
 
-
-    const [listOfCards, setListOfCards ]= useState([])
 
     useEffect(()=>{
         let cards = []
         let manageCards = () =>{
-            // Adding usestate to a list is forbidden. Look through other sols
+   
             if(Object.values(data).at(0)){
             for(let i = 0; i <= 7; i++){
                 for(let j = 0; j < 2;j++){
-                cards.push(<Card num={i} data={data} key={i+'-'+j}></Card>)
+                cards.push(<Card num={i} data={data} key={i+'-'+j} handleFlip={handleFlip} ></Card>)
                 }
             }
         }
     }
+
 
     function shuffle(list){
         let index = list.length
@@ -50,24 +58,19 @@ function Center(){
 
         }
     }
-   
+
+    
     manageCards()
     shuffle(cards)
     setListOfCards(cards)
 
-
-    console.log(listOfCards)
-
-
     }, [data])
-
-
+    
     return (
         <center>  
-            
+
             {listOfCards
              .map(
-                // Shuffle cards here
                 e => e)
              }
         </center>

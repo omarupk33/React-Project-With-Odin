@@ -1,30 +1,37 @@
 import { useState, useEffect } from "react"
 
 
-function Card({ num, data}){
-    // Since we changed the location of the fetchData, we need to do a bit of changes to fix the code and make it work properly
+function Card({ num, data, handleFlip}){
+        
+        const [clicked, isClicked] = useState('')
 
         let image
         if(Object.values(data).at(0)){
           image = <img  width='100%' height='100%' src={Object.values(data).at(0).at(num).images.original.url}
-          alt={Object.values(data).at(0).at(num).url} />
+          alt='gif' />
+
+          let gifId = Object.values(data).at(0).at(num).id
+
+          
+        useEffect(()=>{
+          handleFlip(gifId, false)
+        }, [clicked])
         }
     
 
-        const [focused, setFocus] = useState('')
         const focusStyle = ()=>{
-        if(!focused){setFocus('focused')}
-        else(setFocus(''))
+        if(!clicked){isClicked('clicked')}
+        else(isClicked(''))
         }
 
     return (
-        <div className="flip-box">
+        <div className={clicked ? 'flip-box clicked' : 'flip-box'} onClick={focusStyle}>
             <div className="flip-box-inner">
                 <div className="flip-box-front">
-                {image}
+                
                 </div>
-
                 <div className="flip-box-back">
+                {image}
                 </div>
             </div>
         </div>
