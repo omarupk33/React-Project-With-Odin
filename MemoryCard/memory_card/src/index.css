@@ -25,7 +25,7 @@ header{
 }
 
 center{
-  background-color: #059766;
+  background-color: #310597;
   flex: 1 0 80%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -64,7 +64,7 @@ transition: transform 0.8s;
 transform-style: preserve-3d;
 }
 
-.flip-box.clicked .flip-box-inner {
+.flip-box.clicked .flip-box-inner{
   transform: rotateY(180deg);
 
 }

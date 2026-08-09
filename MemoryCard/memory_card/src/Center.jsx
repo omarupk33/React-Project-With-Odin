@@ -6,13 +6,15 @@ function Center(){
     const [listOfCards, setListOfCards ]= useState([])
     const [flip, setFlip] = useState({})
 
-    function handleFlip(id, state){
+    function handleFlip(id){
         // if(!Object.keys(flip).includes(id)){
-            setFlip({...flip, [id]:state})
+        // if(flip[id] === false){
+            setFlip({...flip, [flip[id]]: true})
         // }
+        console.log(flip)
+
     }
 
-    console.log(flip)
 
     useEffect(()=>{
     async function fetchData(){
@@ -36,12 +38,17 @@ function Center(){
 
     useEffect(()=>{
         let cards = []
+        let ids = {}
         let manageCards = () =>{
    
             if(Object.values(data).at(0)){
             for(let i = 0; i <= 7; i++){
                 for(let j = 0; j < 2;j++){
-                cards.push(<Card num={i} data={data} key={i+'-'+j} handleFlip={handleFlip} ></Card>)
+                let gifId = Object.values(data).at(0).at(i).id
+                ids[gifId] = false
+                cards.push(<Card num={i} data={data} key={i+'-'+j} 
+                    handleFlip={handleFlip}
+                     ></Card>)
                 }
             }
         }
@@ -63,6 +70,8 @@ function Center(){
     manageCards()
     shuffle(cards)
     setListOfCards(cards)
+    setFlip(ids)
+    console.log(ids)
 
     }, [data])
     
