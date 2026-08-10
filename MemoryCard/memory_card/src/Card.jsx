@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 
 
-function Card({ num, data, handleFlip}){
+function Card({ num, data, handleFlip, card1, card1Handle}){
         
         const [clicked, isClicked] = useState('')
 

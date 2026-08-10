@@ -6,14 +6,27 @@ function Center(){
     const [listOfCards, setListOfCards ]= useState([])
     const [flip, setFlip] = useState({})
 
+    // Try out this. If it didn't work, try the array approach
+    const [card1, setCard1] = useState(-1)
+    // const [card2, setCard2] = useState(-1)
+
     function handleFlip(id){
-        // if(!Object.keys(flip).includes(id)){
-        // if(flip[id] === false){
-            setFlip({...flip, [flip[id]]: true})
-        // }
-        console.log(flip)
+        if(flip[id] === false){
+            setFlip({...flip, [id]: true})
+        }
+        else{
+            setFlip({...flip, [id]: false})
+        }
+        // console.log(flip)
 
     }
+
+
+            useEffect(()=>{
+                // handleFlip(gifId)
+                // It's not working yet working, I don't even know how. This is crazzzy
+                console.log(flip)
+            }, [flip])
 
 
     useEffect(()=>{
@@ -46,8 +59,7 @@ function Center(){
                 for(let j = 0; j < 2;j++){
                 let gifId = Object.values(data).at(0).at(i).id
                 ids[gifId] = false
-                cards.push(<Card num={i} data={data} key={i+'-'+j} 
-                    handleFlip={handleFlip}
+                cards.push(<Card num={i} data={data} key={i+'-'+j} handleFlip={handleFlip}
                      ></Card>)
                 }
             }
