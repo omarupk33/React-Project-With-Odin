@@ -1,32 +1,28 @@
 import { useState, useEffect, use } from "react"
 import Card from './Card'
+import Counter from './Counter'
+
 
 function Center(){
     const [data, setData] = useState([])
     const [listOfCards, setListOfCards ]= useState([])
     const [flip, setFlip] = useState({})
+    const [pointUp, setPointUp] = useState(0)
 
-    // Try out this. If it didn't work, try the array approach
-    const [card1, setCard1] = useState(-1)
-    // const [card2, setCard2] = useState(-1)
 
-    function handleFlip(id){
-        if(flip[id] === false){
-            setFlip({...flip, [id]: true})
-        }
-        else{
-            setFlip({...flip, [id]: false})
-        }
-        // console.log(flip)
-
+    function handleFlip(num){
+            setFlip({...flip, [num]: true})
     }
 
+    // Find a way to know matching pairs are flipped
+    useEffect(()=>{
+        console.log(flip)
+    }, [flip])
 
-            useEffect(()=>{
-                // handleFlip(gifId)
-                // It's not working yet working, I don't even know how. This is crazzzy
-                console.log(flip)
-            }, [flip])
+
+    // For Counter component
+    useEffect(()=>{
+    }, [pointUp])
 
 
     useEffect(()=>{
@@ -49,6 +45,7 @@ function Center(){
     }, [])
 
 
+    
     useEffect(()=>{
         let cards = []
         let ids = {}
@@ -57,16 +54,12 @@ function Center(){
             if(Object.values(data).at(0)){
             for(let i = 0; i <= 7; i++){
                 for(let j = 0; j < 2;j++){
-                let gifId = Object.values(data).at(0).at(i).id
-                ids[gifId] = false
                 cards.push(<Card num={i} data={data} key={i+'-'+j} handleFlip={handleFlip}
                      ></Card>)
                 }
             }
         }
     }
-
-
     function shuffle(list){
         let index = list.length
         while(index !==0){

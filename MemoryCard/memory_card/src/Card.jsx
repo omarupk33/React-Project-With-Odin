@@ -14,7 +14,7 @@ function Card({ num, data, handleFlip, card1, card1Handle}){
 
           
             useEffect(()=>{
-                handleFlip(gifId)
+                handleFlip(num)
             }, [clicked])
             }
 
