@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 function Card({ num, data, handleFlip, card1, card1Handle}){
         
         const [clicked, isClicked] = useState('')
+        const [found, setFound] = useState(false)
 
         let image
         if(Object.values(data).at(0)){
@@ -14,21 +15,23 @@ function Card({ num, data, handleFlip, card1, card1Handle}){
 
           
             useEffect(()=>{
-                handleFlip(num)
+                setFound(handleFlip(num))
             }, [clicked])
             }
+
 
             const focusStyle = ()=>{
             if(!clicked){isClicked('clicked')}
             else(isClicked(''))
             }
 
+
     return(
         <div className={clicked ? 'flip-box clicked' : 'flip-box'} onClick={focusStyle}>
             <div className="flip-box-inner">
                 <div className="flip-box-front">
                 </div>
-                <div className="flip-box-back">
+                <div className={found ? 'flip-box-back found' : 'flip-box-back'}>
                 {image}
                 </div>
             </div>

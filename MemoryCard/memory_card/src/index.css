@@ -82,5 +82,8 @@ transform-style: preserve-3d;
 }
 .flip-box-back{
   transform: rotateY(180deg);
-
+}
+.found{
+  width: 10px;
+  height: 10px;
 }

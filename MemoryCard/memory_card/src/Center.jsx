@@ -6,13 +6,16 @@ import Counter from './Counter'
 function Center(){
     const [data, setData] = useState([])
     const [listOfCards, setListOfCards ]= useState([])
-    const [flip, setFlip] = useState({})
+    const [flip, setFlip] = useState()
     const [pointUp, setPointUp] = useState(0)
 
 
     function handleFlip(num){
-            setFlip({...flip, [num]: true})
+        if(flip === num){return true} 
+        setFlip(num)    
+        return false
     }
+
 
     // Find a way to know matching pairs are flipped
     useEffect(()=>{
@@ -48,18 +51,19 @@ function Center(){
     
     useEffect(()=>{
         let cards = []
-        let ids = {}
         let manageCards = () =>{
    
             if(Object.values(data).at(0)){
             for(let i = 0; i <= 7; i++){
                 for(let j = 0; j < 2;j++){
+
                 cards.push(<Card num={i} data={data} key={i+'-'+j} handleFlip={handleFlip}
                      ></Card>)
                 }
             }
         }
     }
+
     function shuffle(list){
         let index = list.length
         while(index !==0){
@@ -75,8 +79,6 @@ function Center(){
     manageCards()
     shuffle(cards)
     setListOfCards(cards)
-    setFlip(ids)
-    console.log(ids)
 
     }, [data])
     
