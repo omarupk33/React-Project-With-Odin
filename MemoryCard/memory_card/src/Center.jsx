@@ -6,23 +6,18 @@ import Counter from './Counter'
 function Center(){
     const [data, setData] = useState([])
     const [listOfCards, setListOfCards ]= useState([])
-    const [flip, setFlip] = useState()
+    const [flipped, setFlip] = useState([])
     const [pointUp, setPointUp] = useState(0)
 
-
+    // 
     function handleFlip(num){
-        if(flip === num){return true} 
-        setFlip(num)    
-        return false
+        setFlip((prev) => [...prev, num])
+
     }
 
+        console.log(flipped)
 
-    // Find a way to know matching pairs are flipped
-    useEffect(()=>{
-        console.log(flip)
-    }, [flip])
-
-
+        
     // For Counter component
     useEffect(()=>{
     }, [pointUp])
@@ -58,7 +53,7 @@ function Center(){
                 for(let j = 0; j < 2;j++){
 
                 cards.push(<Card num={i} data={data} key={i+'-'+j} handleFlip={handleFlip}
-                     ></Card>)
+                flipped={flipped}></Card>)
                 }
             }
         }

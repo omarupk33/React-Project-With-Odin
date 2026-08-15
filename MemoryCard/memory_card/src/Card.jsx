@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react"
 
 
-function Card({ num, data, handleFlip, card1, card1Handle}){
+function Card({ num, data, handleFlip, flipped}){
         
         const [clicked, isClicked] = useState('')
-        const [found, setFound] = useState(false)
+
         let image
 
         if(Object.values(data).at(0)){
@@ -13,25 +13,19 @@ function Card({ num, data, handleFlip, card1, card1Handle}){
           
         }
 
-        let lengthOfCardArrays
-        useEffect(()=>{
-            setFound(handleFlip(num))
-            let allClickedCards = document.querySelectorAll('.clicked')
-            lengthOfCardArrays = allClickedCards.length
-            console.log(lengthOfCardArrays)
-            
-            return ()=>{
-                allClickedCards = []
-                lengthOfCardArrays = 0
-            }
-        }, [clicked])
-
-
             const focusStyle = ()=>{
-            if(lengthOfCardArrays < 2){
-            if(!clicked){isClicked('clicked')}
-            else(isClicked(''))}
+            // if(flipped.length < 2)
+            if(!clicked){isClicked('clicked')
+            handleFlip(num)
+
             }
+            else{isClicked('')
+                // Do something here to remove the num from the list
+                // handleFlip(num - 1)?
+
+            }
+        }
+            // }
 
 
     return(
@@ -39,7 +33,7 @@ function Card({ num, data, handleFlip, card1, card1Handle}){
             <div className="flip-box-inner">
                 <div className="flip-box-front">
                 </div>
-                <div className={found ? 'flip-box-back found' : 'flip-box-back'}>
+                <div className={'flip-box-back'}>
                 {image}
                 </div>
             </div>
