@@ -8,19 +8,30 @@ function Center(){
     const [listOfCards, setListOfCards ]= useState([])
     const [flipped, setFlip] = useState([])
     const [pointUp, setPointUp] = useState(0)
+    const [isFull, setFull] = useState(false)
 
-    // 
     function handleFlip(num){
         setFlip((prev) => [...prev, num])
-
+        
     }
 
-        console.log(flipped)
 
-        
+
+
+    function removeFlip(num){
+            setFlip(prev => prev.filter((item) => item !== num))
+    }
+    
+    console.log(flipped)
+    console.log(isFull)
+
+ 
+
     // For Counter component
     useEffect(()=>{
-    }, [pointUp])
+        setFull(flipped.length === 2)
+
+    }, [flipped])
 
 
     useEffect(()=>{
@@ -53,7 +64,7 @@ function Center(){
                 for(let j = 0; j < 2;j++){
 
                 cards.push(<Card num={i} data={data} key={i+'-'+j} handleFlip={handleFlip}
-                flipped={flipped}></Card>)
+                removeFlip={removeFlip}flipped={flipped} full={isFull}></Card>)
                 }
             }
         }
