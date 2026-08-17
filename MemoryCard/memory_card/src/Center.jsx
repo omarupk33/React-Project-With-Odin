@@ -30,7 +30,6 @@ function Center(){
     // For Counter component
     useEffect(()=>{
         setFull(flipped.length === 2)
-
     }, [flipped])
 
 
@@ -58,15 +57,12 @@ function Center(){
     useEffect(()=>{
         let cards = []
         let manageCards = () =>{
-   
-            if(Object.values(data).at(0)){
-            for(let i = 0; i <= 7; i++){
-                for(let j = 0; j < 2;j++){
-
-                cards.push(<Card num={i} data={data} key={i+'-'+j} handleFlip={handleFlip}
-                removeFlip={removeFlip}flipped={flipped} full={isFull}></Card>)
-                }
+        if(Object.values(data).at(0)){
+        for(let i = 0; i <= 7; i++){
+            for(let j = 0; j < 2;j++){
+            cards.push({num:i})
             }
+        }
         }
     }
 
@@ -91,10 +87,26 @@ function Center(){
     return (
         <center>  
 
+
+
             {listOfCards
-             .map(
-                e => e)
+             .map((e, index)=>{
+
+                // Ato scoshi dake 
+                if(flipped[0] === flipped[1] && flipped[0] === e.num){
+                    return <div>Found</div>
+                }
+                 
+                if(isFull){
+                    setFlip([])
+                    setFull(false)
+                }
+
+               return <Card num={e.num} data={data} key={index} handleFlip={handleFlip}
+                removeFlip={removeFlip}flipped={flipped} full={isFull}></Card>
+                })
              }
+
         </center>
     )
 }
