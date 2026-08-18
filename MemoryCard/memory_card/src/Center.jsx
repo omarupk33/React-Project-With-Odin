@@ -5,8 +5,9 @@ import Counter from './Counter'
 
 function Center(){
     const [data, setData] = useState([])
-    const [listOfCards, setListOfCards ]= useState([])
+    const [listOfCards, setListOfCards]= useState([])
     const [flipped, setFlip] = useState([])
+    const [isFound, setFound] = useState([])
     const [pointUp, setPointUp] = useState(0)
     const [isFull, setFull] = useState(false)
 
@@ -23,20 +24,29 @@ function Center(){
     }
     
     console.log(flipped)
-    console.log(isFull)
+    // console.log(isFull)
 
  
 
     // For Counter component
     useEffect(()=>{
-        setFull(flipped.length === 2)
+
+        setFull(flipped.length >= 2)
+        if(Number.isInteger(flipped[0]) &&
+        flipped[0] === flipped[1]){
+        setFound(prev => [...prev, flipped[0]])
+        setFlip(prev => flipped.filter(c => !isFound.includes(c)))
+    }
+  
+        
+
     }, [flipped])
 
 
     useEffect(()=>{
     async function fetchData(){
         try{
-            const response = await fetch('https://api.giphy.com/v1/gifs/search?api_key=6uFEXyu7kVpkQyoPVtRKjyWKG1viZl7H&q=brawlstars%20nori&limit=16&offset=0&rating=g&lang=en&bundle=messaging_non_clips')
+            const response = await fetch('https://api.giphy.com/v1/gifs/search?api_key=6uFEXyu7kVpkQyoPVtRKjyWKG1viZl7H&q=fate%20Shiro&limit=16&offset=0&rating=g&lang=en&bundle=messaging_non_clips')
                 if(!response.ok){
                 throw new Error(`Error: ${response.status}`)}
             
@@ -91,19 +101,15 @@ function Center(){
 
             {listOfCards
              .map((e, index)=>{
-
-                // Ato scoshi dake 
-                if(flipped[0] === flipped[1] && flipped[0] === e.num){
-                    return <div>Found</div>
-                }
-                 
-                if(isFull){
-                    setFlip([])
-                    setFull(false)
+                let found = false
+                // Ato scoshi dake
+                if(isFound.includes(e.num)){
+                    found = true
+                    
                 }
 
                return <Card num={e.num} data={data} key={index} handleFlip={handleFlip}
-                removeFlip={removeFlip}flipped={flipped} full={isFull}></Card>
+                removeFlip={removeFlip}found={found} full={isFull}></Card>
                 })
              }
 
