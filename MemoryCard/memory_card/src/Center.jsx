@@ -9,44 +9,40 @@ function Center(){
     const [flipped, setFlip] = useState([])
     const [isFound, setFound] = useState([])
     const [pointUp, setPointUp] = useState(0)
+    const [hearts, setHearts] = useState(10)
     const [isFull, setFull] = useState(false)
 
     function handleFlip(num){
         setFlip((prev) => [...prev, num])
-        
     }
-
-
-
-
     function removeFlip(num){
             setFlip(prev => prev.filter((item) => item !== num))
     }
     
-    console.log(flipped)
-    // console.log(isFull)
-
- 
+    function clearFlip(){
+        setFlip(prev => [])
+    } 
 
     // For Counter component
     useEffect(()=>{
-
         setFull(flipped.length >= 2)
         if(Number.isInteger(flipped[0]) &&
         flipped[0] === flipped[1]){
         setFound(prev => [...prev, flipped[0]])
+        setPointUp(pointUp + 1)
         setFlip(prev => flipped.filter(c => !isFound.includes(c)))
+
     }
-  
-        
+    else if( flipped[0] !== flipped[1] && Number.isInteger(flipped[1])){
+            setHearts(hearts - 1)
+        }
 
     }, [flipped])
-
 
     useEffect(()=>{
     async function fetchData(){
         try{
-            const response = await fetch('https://api.giphy.com/v1/gifs/search?api_key=6uFEXyu7kVpkQyoPVtRKjyWKG1viZl7H&q=fate%20Shiro&limit=16&offset=0&rating=g&lang=en&bundle=messaging_non_clips')
+            const response = await fetch('https://api.giphy.com/v1/gifs/search?api_key=6uFEXyu7kVpkQyoPVtRKjyWKG1viZl7H&q=fate%20Shiru&limit=16&offset=0&rating=g&lang=en&bundle=messaging_non_clips')
                 if(!response.ok){
                 throw new Error(`Error: ${response.status}`)}
             
@@ -97,8 +93,8 @@ function Center(){
     return (
         <center>  
 
-
-
+            <Counter pointUp={pointUp} hearts={hearts}isFound={isFound}></Counter>
+            <div className="cards-container">
             {listOfCards
              .map((e, index)=>{
                 let found = false
@@ -109,10 +105,11 @@ function Center(){
                 }
 
                return <Card num={e.num} data={data} key={index} handleFlip={handleFlip}
-                removeFlip={removeFlip}found={found} full={isFull}></Card>
+                removeFlip={removeFlip} clearFlip={clearFlip} found={found}
+                full={isFull}></Card>
                 })
              }
-
+            </div>
         </center>
     )
 }
