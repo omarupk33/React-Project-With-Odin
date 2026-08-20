@@ -42,7 +42,7 @@ function Center(){
     useEffect(()=>{
     async function fetchData(){
         try{
-            const response = await fetch('https://api.giphy.com/v1/gifs/search?api_key=6uFEXyu7kVpkQyoPVtRKjyWKG1viZl7H&q=fate%20Shiru&limit=16&offset=0&rating=g&lang=en&bundle=messaging_non_clips')
+            const response = await fetch('https://api.giphy.com/v1/gifs/search?api_key=6uFEXyu7kVpkQyoPVtRKjyWKG1viZl7H&q=random&limit=16&offset=0&rating=g&lang=en&bundle=messaging_non_clips')
                 if(!response.ok){
                 throw new Error(`Error: ${response.status}`)}
             
@@ -89,11 +89,17 @@ function Center(){
     setListOfCards(cards)
 
     }, [data])
+
+// Rest everyhing here
+        const handleReplay = ()=>{
+             setHearts(10)
+            setScore(0)
+        } 
     
     return (
         <center>  
 
-            <Counter pointUp={pointUp} hearts={hearts}isFound={isFound}></Counter>
+            <Counter pointUp={pointUp} hearts={hearts}setHearts={setHearts} isFound={isFound}></Counter>
             <div className="cards-container">
             {listOfCards
              .map((e, index)=>{

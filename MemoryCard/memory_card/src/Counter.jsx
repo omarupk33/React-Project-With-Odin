@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import Win from "./Win"
 import Lose from "./Lose"
 
-function Counter({pointUp, hearts, isFound}){
+function Counter({pointUp, hearts,setHearts, handleReplay , isFound}){
     
     const [curr, setCurrent] = useState(0)
     const [best, setBest] = useState(0)
@@ -31,12 +31,12 @@ function Counter({pointUp, hearts, isFound}){
                 ❤️: {hearts}
             </h1>
         </div>
-        <Lose hearts={hearts}>
-
+        <Lose hearts={hearts} score={best} handleReplay={handleReplay}>
         </Lose>
-        <Win hearts={hearts} isFound={isFound}>
 
+        <Win hearts={hearts}  score={best} isFound={isFound} handleReplay={handleReplay}>
         </Win>
+
         </div>
     )
 }
