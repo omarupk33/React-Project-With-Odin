@@ -1,7 +1,8 @@
+import { use } from "react"
 import { useState, useEffect } from "react"
 
 
-function Card({ num, data, handleFlip, removeFlip,full, clearFlip, found }){
+function Card({ num, data, handleFlip, removeFlip,full, handleReplay, found }){
         
         const [clicked, isClicked] = useState('')
         let image
@@ -11,10 +12,13 @@ function Card({ num, data, handleFlip, removeFlip,full, clearFlip, found }){
           alt='gif'/> 
         }
 
+        useEffect(()=>{
+            isClicked('')
+        }, [handleReplay])
+
+
 
             const focusStyle = ()=>{
-            // Change something here so we can seperate the logic that flips the card
-            // and the logic that remove num from removeFlip
             if(!full){
             if(!clicked){
                 isClicked('clicked')

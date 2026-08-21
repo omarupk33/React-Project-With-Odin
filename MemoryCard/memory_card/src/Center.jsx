@@ -1,6 +1,6 @@
 import { useState, useEffect, use } from "react"
 import Card from './Card'
-import Counter from './Counter'
+import Settings from './Settings'
 
 
 function Center(){
@@ -11,6 +11,24 @@ function Center(){
     const [pointUp, setPointUp] = useState(0)
     const [hearts, setHearts] = useState(10)
     const [isFull, setFull] = useState(false)
+    const [value, setValue] = useState('random')
+
+
+
+    const handleReplay = ()=>{
+        setHearts(10)
+        setFlip([])
+        setPointUp(0)
+        setFound([])
+        setFull(false)      
+    } 
+
+    const handleValue = (e)=>{
+        handleReplay()
+        setValue(e.target.value)
+    }
+
+
 
     function handleFlip(num){
         setFlip((prev) => [...prev, num])
@@ -23,7 +41,6 @@ function Center(){
         setFlip(prev => [])
     } 
 
-    // For Counter component
     useEffect(()=>{
         setFull(flipped.length >= 2)
         if(Number.isInteger(flipped[0]) &&
@@ -40,15 +57,15 @@ function Center(){
     }, [flipped])
 
     useEffect(()=>{
+        let api = `https://api.giphy.com/v1/gifs/search?api_key=6uFEXyu7kVpkQyoPVtRKjyWKG1viZl7H&q=${value ? value: 'random'}&limit=16&offset=0&rating=g&lang=en&bundle=messaging_non_clips`
     async function fetchData(){
         try{
-            const response = await fetch('https://api.giphy.com/v1/gifs/search?api_key=6uFEXyu7kVpkQyoPVtRKjyWKG1viZl7H&q=random&limit=16&offset=0&rating=g&lang=en&bundle=messaging_non_clips')
+            const response = await fetch(api)
                 if(!response.ok){
                 throw new Error(`Error: ${response.status}`)}
             
             const json = await response.json()
             setData(json)
-
             }            
         catch (error) {
         console.error('Fetch operation failed:', error.message);
@@ -56,7 +73,7 @@ function Center(){
     }
 
     fetchData()
-    }, [])
+    }, [value])
 
 
     
@@ -90,28 +107,26 @@ function Center(){
 
     }, [data])
 
-// Rest everyhing here
-        const handleReplay = ()=>{
-             setHearts(10)
-            setScore(0)
-        } 
+
     
     return (
         <center>  
 
-            <Counter pointUp={pointUp} hearts={hearts}setHearts={setHearts} isFound={isFound}></Counter>
-            <div className="cards-container">
+            <Settings pointUp={pointUp} hearts={hearts}setHearts={setHearts}
+             isFound={isFound} inputValue={value} handleValue={handleValue}
+            ></Settings>
+            <div className="cards-container" >
             {listOfCards
              .map((e, index)=>{
                 let found = false
-                // Ato scoshi dake
+        
                 if(isFound.includes(e.num)){
                     found = true
                     
                 }
 
                return <Card num={e.num} data={data} key={index} handleFlip={handleFlip}
-                removeFlip={removeFlip} clearFlip={clearFlip} found={found}
+                removeFlip={removeFlip} handleReplay={value} found={found}
                 full={isFull}></Card>
                 })
              }

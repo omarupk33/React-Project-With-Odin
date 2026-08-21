@@ -3,7 +3,6 @@ body,html{
   padding: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgb(205, 151, 50);
 }
 
 
@@ -11,8 +10,8 @@ body,html{
 #root{
   display: flex;
   height: 100vh;
-  background-color: rgb(10, 228, 82);
   flex-direction: column;
+  color: white;
 }
 
 header{
@@ -40,9 +39,22 @@ footer{
   justify-content: center;
 }
 
-.count-container{
+.settings-container{
   display: flex;
-  background-color: #250597;
+  background-color: dodgerblue;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#api_search{
+border: red solid 0.1vw;
+}
+#api_search:not(:placeholder-shown){
+border: green solid 0.1vw;
+}
+
+#api_search{
+border: red solid 0.1vw;
 }
 
 .cards-container{
@@ -54,9 +66,9 @@ footer{
 }
 .flip-box{
   background-color:transparent;
-  width: 4vw;
+  width: 6vw;
   height: 9vw;
-  border: #d4c934 dashed 2px;
+  margin: 0.1vw;
   perspective: 1000px;
 }
 
@@ -108,9 +120,11 @@ transform-style: preserve-3d;
   display: none;
   visibility:visible;
   flex-direction: column;
-  background-color: azure;
-  /* width: 10vw;
-  height: 7vw; */
+  color: rgb(214, 100, 50);
+  background-color: #250597;
+
+  margin: 2vw;
+  padding: 2vw;
   position: fixed;
   top: 50%;
   left: 50%;

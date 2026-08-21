@@ -1,13 +1,15 @@
-function Lose({hearts, score, handleReplay}){
+function Lose({hearts, score, handleRefresh}){
 
 
 
-    return <div className= {hearts === 9 ? "backdrop pop-up" : 'backdrop'}>
-        <section className={ hearts === 9 ? "lose-screen pop-up" : 'lose-screen'}>
+    return <div className= {hearts === 0 ? "backdrop pop-up" : 'backdrop'}>
+        <section className={ hearts === 0 ? "lose-screen pop-up" : 'lose-screen'}>
         <h1>You Lost</h1>
-        <h1>Your Score: {score}</h1>
-        
-        <button onClick={()=> handleReplay()}> Play again</button>
+        <p>Score: {score}</p>
+        <p>Remaining ❤️: {hearts}</p>
+        <p>final Score (hearts X Score): Noobie 🥺</p>
+
+        <button onClick={handleRefresh}> Play again</button>
     </section>
 
     </div>
